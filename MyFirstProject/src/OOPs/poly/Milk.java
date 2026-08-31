@@ -1,4 +1,7 @@
 package OOPs.poly;
 
-public class Milk {
+public class Milk extends Liquid{
+    public void swirl(){
+        System.out.println("Swirling milk");
+    }
 }
