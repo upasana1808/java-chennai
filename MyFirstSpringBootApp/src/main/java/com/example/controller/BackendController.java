@@ -28,10 +28,16 @@ public class BackendController {
     {
         return names;
     }
-    @PostMapping("/add")
-    public void add()
+
+    @RequestMapping("/listOne/{id}")
+    public String showOne(@PathVariable int id)
     {
-       names.add("Jude");
+        return names.get(id) ;
+    }
+    @PostMapping("/add")
+    public void add(@RequestBody String name)
+    {
+       names.add(name);
     }
     @PutMapping("/update")
     public void update()
@@ -42,6 +48,12 @@ public class BackendController {
     public void delete()
     {
         names.remove(2);
+    }
+
+    @PutMapping("/updateOne/{id}")
+    public void update1(@PathVariable int id,@RequestBody String name)
+    {
+        names.add(id,name);
     }
 
 
